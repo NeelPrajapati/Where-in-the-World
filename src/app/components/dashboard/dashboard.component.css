@@ -1,0 +1,160 @@
+main {
+    color: var(--text-color);
+}
+
+.filter {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.filter img{
+    width: 35px;
+    cursor: pointer;
+}
+.search {
+    display: flex;
+    background-color: var(--bg-search);
+    border-radius: 5px;
+    /* align-items: center; */
+}
+
+.search .search-icon {
+    width: 25px;
+    padding-left: 10px;
+    padding-top: 9px;
+}
+
+.search .search-box {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: var(--text-color);
+    background-color: var(--bg-search);
+    width: 100%;
+}
+
+.search .search-box::placeholder {
+    color: var(--text-color);
+}
+
+.filter select {
+    /* padding: 10px 15px; */padding: 8px 32px 8px 16px;
+
+    outline: none;
+    background-color: var(--bg-search);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    width: 21.5%;
+}
+.filter select::after{
+    margin-right: 50px;
+}
+
+.filter option {
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    width: calc(25% - 30px);
+    margin: 0 15px 30px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+   
+}
+
+.flag {
+    position: relative;
+    padding-bottom: 60%;
+}
+
+.flag img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.country-summary {
+    padding: 20px;
+}
+
+.country-summary h2 {
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.pagination{
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--bg-header);
+}
+.pagination .container{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination span a {
+    color: var(--text-color);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    cursor: pointer;
+  }
+  
+  .pagination span a.active {
+    background-color: var(--bg-pg);
+    color:  var(--text-color);
+  }
+  
+  .pagination span a:hover:not(.active) {
+      background-color: var(--bg-pg);
+      color:  var(--text-color);
+    }
+
+    .pagination span a.show {
+        display: none;
+      }
+    
+
+@media screen and (max-width:767px) {
+    .filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .filter select {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: calc(50% - 30px);
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .card {
+        width: calc(100% - 30px);
+    }
+}

@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+    --text-color: hsl(0, 0%, 100%);
+    --bg-color: hsl(207, 26%, 17%);
+    --bg-card: hsl(209, 23%, 22%);
+    --bg-header: hsl(209, 23%, 22%);
+    --bg-search: hsl(209, 23%, 22%);
+    --bg-btn: hsl(209, 23%, 22%);
+    --border: hsl(0, 0%, 100%);
+    --toogle: hsl(0, 0%, 100%);
+    --toogle-text: hsl(207, 26%, 17%);
+
+    --bg-pg: #fff4;
+
+    background-color: var(--bg-color);
+}
+
+body.light-theme {
+    --text-color: hsl(209, 23%, 22%);
+    --bg-color: hsl(0, 0%, 100%);
+    --bg-card: hsl(0, 0%, 94%);
+    --bg-header: hsl(0, 0%, 94%);
+    --bg-search: hsl(0, 0%, 94%);
+    --bg-btn: hsl(0, 0%, 91%);
+    --border: hsl(209, 23%, 22%);
+    --toogle: hsl(209, 23%, 22%);
+    --toogle-text: hsl(0, 0%, 100%);
+
+    --bg-pg: rgb(163, 163, 163);
+
+    background-color: var(--bg-color);
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+      padding: 0 20px;
+    }
+}
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

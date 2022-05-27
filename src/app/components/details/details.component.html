@@ -1,0 +1,75 @@
+<!-- <p>details works!</p> -->
+
+<main>
+  <div class="container">
+    <!-- <button (click)="onPrevCountry()" >Prev</button> -->
+    <div class="details-main">
+      <div class="back">
+        <button class="back-btn" (click)="gotoDashboard()">Back</button>
+      </div>
+      
+        <div class="prev">
+          <img
+            src="./assets/left-arrow.png"
+            alt="left-arrow"
+            (click)="onPrevCountry()"
+          />
+        </div>
+        <div class="details">
+          <div>
+            <img src="{{ detail.flags.svg }}" alt="flag" class="flag" />
+          </div>
+          <div class="country-content">
+            <div class="country-name">
+              <h2>{{ detail.name }}</h2>
+            </div>
+            <div class="country-details">
+              <div>
+                <p><strong>Native Name:</strong> {{ detail.nativeName }}</p>
+                <p>
+                  <strong>Population:</strong>
+                  {{ detail.population.toLocaleString("en-IN") }}
+                </p>
+                <p><strong>Region:</strong> {{ detail.region }}</p>
+                <p><strong>Subregion:</strong> {{ detail.subregion }}</p>
+                <p><strong>Capital:</strong> {{ detail.capital }}</p>
+              </div>
+              <div>
+                <p>
+                  <strong>Top Level Domain:</strong>
+                  {{ detail.topLevelDomain[0] }}
+                </p>
+                <p><strong>Timezone:</strong> {{ detail.timezones[0] }}</p>
+                <p>
+                  <strong>Currencies:</strong> {{ detail.currencies[0].name }}
+                </p>
+                <p>
+                  <strong>Languages: </strong>
+                  <span *ngFor="let language of languages"
+                    >{{ language.name }}&nbsp;
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries" *ngIf="borderCountries.length > 0">
+              <strong>Border Countries: </strong>
+              <button
+                *ngFor="let borderCountry of borderCountries"
+                (click)="goToBorderCountryDetails(borderCountry)"
+              >
+                {{ borderCountry }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="next">
+          <img
+            src="./assets/right-arrow.png"
+            alt="left-arrow"
+            (click)="onNextCountry()"
+          />
+        </div>
+  
+    </div>
+  </div>
+</main>

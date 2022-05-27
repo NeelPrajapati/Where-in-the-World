@@ -1,0 +1,17 @@
+form {
+    background-color: hsl(207, 26%, 17%);
+}
+
+input {
+    background-color: hsl(209, 23%, 22%);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 25%;
+    outline: white;
+    caret-color: white;
+}
+
+input::placeholder {
+    color: white;
+}

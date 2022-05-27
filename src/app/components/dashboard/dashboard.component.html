@@ -1,0 +1,129 @@
+<main>
+  <!-- Search By Name -Text Box -->
+  <div class="container">
+    <form class="filter">
+      <div class="search">
+        <!-- <i class="fa fa-search search-icon"></i> -->
+        <input
+          type="text"
+          name="search"
+          id="searchByName"
+          class="search-box"
+          placeholder="Search"
+          [(ngModel)]="searchByName"
+          (ngModelChange)="filterApply(true)"
+        />
+      </div>
+
+      <!-- Filter By Region - DropdownList-->
+      <select
+        name="selectRegion"
+        id=""
+        [(ngModel)]="filterByRegion"
+        (ngModelChange)="filterApply(true)"
+      >
+        <option value="select">Filter by region</option>
+        <option value="{{ i }}" *ngFor="let i of regionList">{{ i }}</option>
+      </select>
+
+      <select
+        name="sortBy"
+        id=""
+        [(ngModel)]="sortBy"
+        (ngModelChange)="filterApply(true)"
+      >
+        <option value="select" selected>Sort By</option>
+        <option value="capital" >Capital</option>
+        <option value="name" >Country</option>
+        <option value="population" >Population</option>
+        <option value="region" >Region</option>
+      </select>
+
+      <img src="./assets/xls.png" alt="" (click)="exportexcel()">
+      <!-- <button (click)="exportexcel()">Export to Excel</button> -->
+    </form>
+    
+    <table id="excel-table" style="display: none;">
+      <tr>
+        <th>Country Name</th>
+        <th>Capital</th>
+        <th>Region</th>
+        <th>Population</th>
+      </tr>
+      <tr *ngFor="let item of copyCards">
+        <td>{{item.name}}</td>
+        <td>{{item.capital}}</td>
+        <td>{{item.region}}</td>
+        <td>{{item.population}}</td>
+      </tr>
+    </table>
+   
+
+
+    <!-- CARDS -->
+    <div class="cards" *ngIf="cards as result">
+      <div class="card" *ngFor="let card of result" (click)="gotoDetails(card)">
+        <div class="flag">
+          <img src="{{ card.flags.png }}" alt="flag" />
+        </div>
+        <div class="country-summary">
+          <h2>{{ card.name }}</h2>
+          <p>
+            <strong>Population:</strong>
+            {{ card.population.toLocaleString("en-IN") }}
+          </p>
+
+          <div *ngIf="filterByRegion == 'select'; else sub_region">
+            <p><strong>Region:</strong> {{ card.region }}</p>
+          </div>
+          <ng-template #sub_region
+            ><strong>Subregion:</strong> {{ card.subregion }}</ng-template
+          >
+
+          <p><strong>Capital:</strong> {{ card.capital }}</p>
+        </div>
+      </div>
+
+      <div *ngIf="result.length === 0">No countries found.</div>
+    </div>
+
+    <!-- | paginate:{ itemsPerPage: 8, currentPage: p } -->
+    <!-- | paginate: { itemsPerPage: 8, currentPage: searchByName?1:p } -->
+  </div>
+  <div class="pagination" *ngIf="cards.length !== 0">
+    <div class="container">
+      <span *ngIf="isPrev">
+        <a (click)="onPrevious()">&laquo;</a>
+      </span>
+      <span (click)="onPageChange(1)" *ngIf="isPrev && activePage > 3">
+        <a> 1 </a>
+      </span>
+      <span *ngIf="isPrev && activePage > 3">
+        <a> ... </a>
+      </span>
+      <span *ngFor="let n of pages(totalPage); let i = index">
+        <a
+          *ngIf="
+            activePage == i + 1 || (activePage < i + 4 && activePage > i - 2)
+          "
+          [ngClass]="{ active: activePage == i + 1 }"
+          (click)="onPageChange(i + 1)"
+          >{{ i + 1 }}</a
+        >
+      </span>
+      <span *ngIf="isNext && activePage < totalPage - 2">
+        <a> ... </a>
+      </span>
+      <span
+        (click)="onPageChange(totalPage)"
+        *ngIf="isNext && activePage < totalPage - 2"
+      >
+        <a> {{ totalPage }} </a>
+      </span>
+      <span *ngIf="isNext">
+        <a (click)="onNext()">&raquo;</a>
+      </span>
+    </div>
+  </div>
+
+</main>

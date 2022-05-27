@@ -1,0 +1,130 @@
+main {
+    color: var(--text-color);
+    position: relative;
+    height: 90vh;
+}
+
+.next img, .prev img{
+    /* display: inline-block; */
+    position: absolute;
+    width: 20px;
+    top: 50%;
+    
+    /* display: flex;
+    justify-content: center;
+    height: 25px */
+}
+
+.prev img {
+    left: 0;
+}
+
+.next img {
+    right: 0;
+} 
+
+/* .back {
+    display: flex;
+    background-color: hsl(209, 23%, 22%);
+    border-radius: 5px;
+    width: 70px;
+    margin-top: 40px;
+    cursor: pointer;
+
+    
+} */
+
+/* .back .back-arrow {
+    width: 25px;
+    padding-left: 10px;
+    padding-top: 9px;
+    cursor: pointer;
+} */
+
+.back-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: var(--text-color);
+    background-color: var(--bg-btn);
+    cursor: pointer;
+    text-align: center;
+    margin-top: 40px;
+    width: 90px;
+}
+
+.content {
+    display: flex;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 5%;
+    margin-top: 40px;
+    /* margin-right: ; */
+}
+
+.details .flag {
+    width: 500px;
+    object-fit: cover;
+    border: 1px solid var(--bg-pg);
+}
+
+.details .country-name {
+    padding: 15px 0 25px;
+}
+
+.details .country-details {
+    display: flex;
+    gap: 80px
+}
+
+.details p {
+    margin-top: 7px;
+}
+
+.border-countries {
+    margin-top: 50px;
+}
+
+.border-countries button {
+    margin: 5px 5px;
+    padding: 5px 20px;
+    background-color: var(--bg-btn);
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--text-color);
+}
+
+@media screen and (max-width:767px) {
+    .details {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details .flag {
+        width: 100%;
+    }
+
+    .details .country-name {
+        padding: 0;
+    }
+
+    .details .country-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .details .country-name {
+        padding: 20px 0 25px;
+    }
+
+    .border-countries {
+        margin-bottom: 50px;
+    }
+}
