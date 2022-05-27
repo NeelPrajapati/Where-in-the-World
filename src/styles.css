@@ -50,6 +50,13 @@ body.light-theme {
     margin: 0 auto;
 }
 
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--text-color);
+    background-color: var(--bg-card);
+}
+
 @media only screen and (max-width: 900px) {
     .container {
       padding: 0 20px;
