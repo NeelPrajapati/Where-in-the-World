@@ -51,6 +51,9 @@ body.light-theme {
 }
 
 .copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     text-align: center;
     padding: 20px 0;
     color: var(--text-color);

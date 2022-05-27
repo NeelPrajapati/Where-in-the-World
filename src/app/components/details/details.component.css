@@ -1,7 +1,7 @@
 main {
     color: var(--text-color);
     position: relative;
-    height: 90vh;
+    /* height: 90vh; */
 }
 
 .next img, .prev img{
@@ -63,7 +63,7 @@ main {
     justify-content: space-between;
 
     gap: 5%;
-    margin-top: 40px;
+    margin: 40px 0;
     /* margin-right: ; */
 }
 
@@ -100,6 +100,8 @@ main {
     border: none;
     color: var(--text-color);
 }
+
+
 
 @media screen and (max-width:767px) {
     .details {
