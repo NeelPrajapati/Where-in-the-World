@@ -39,7 +39,7 @@
         <option value="region" >Region</option>
       </select>
 
-      <img src="./assets/xls.png" alt="" (click)="exportexcel()">
+      <img src="./assets/xls.png" alt="" (click)="exportexcel()" class="export">
       <!-- <button (click)="exportexcel()">Export to Excel</button> -->
     </form>
     
@@ -90,7 +90,7 @@
     <!-- | paginate:{ itemsPerPage: 8, currentPage: p } -->
     <!-- | paginate: { itemsPerPage: 8, currentPage: searchByName?1:p } -->
   </div>
-  <div class="pagination" *ngIf="cards.length !== 0">
+  <div class="pagination desktop" *ngIf="cards.length !== 0">
     <div class="container">
       <span *ngIf="isPrev">
         <a (click)="onPrevious()">&laquo;</a>
@@ -105,6 +105,43 @@
         <a
           *ngIf="
             activePage == i + 1 || (activePage < i + 4 && activePage > i - 2)
+          "
+          [ngClass]="{ active: activePage == i + 1 }"
+          (click)="onPageChange(i + 1)"
+          >{{ i + 1 }}</a
+        >
+      </span>
+      <span *ngIf="isNext && activePage < totalPage - 2">
+        <a> ... </a>
+      </span>
+      <span
+        (click)="onPageChange(totalPage)"
+        *ngIf="isNext && activePage < totalPage - 2"
+      >
+        <a> {{ totalPage }} </a>
+      </span>
+      <span *ngIf="isNext">
+        <a (click)="onNext()">&raquo;</a>
+      </span>
+    </div>
+  </div>
+
+
+  <div class="pagination mobile" *ngIf="cards.length !== 0">
+    <div class="container">
+      <span *ngIf="isPrev">
+        <a (click)="onPrevious()">&laquo;</a>
+      </span>
+      <span (click)="onPageChange(1)" *ngIf="isPrev && activePage > 3">
+        <a> 1 </a>
+      </span>
+      <span *ngIf="isPrev && activePage > 3">
+        <a> ... </a>
+      </span>
+      <span *ngFor="let n of pages(totalPage); let i = index">
+        <a
+          *ngIf="
+            activePage == i + 1 || (activePage < i + 3 && activePage > i - 1)
           "
           [ngClass]="{ active: activePage == i + 1 }"
           (click)="onPageChange(i + 1)"
