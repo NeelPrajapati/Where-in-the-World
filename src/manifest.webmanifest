@@ -3,7 +3,7 @@
   "short_name": "Visit the World",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "Neel",
+  "display": "Created By Neel",
   "scope": "./",
   "start_url": "./",
   "icons": [
