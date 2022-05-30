@@ -4,24 +4,36 @@ main {
     /* height: 90vh; */
 }
 
-.next img, .prev img{
-    /* display: inline-block; */
-    position: absolute;
+.next {
+    display: flex;
+    /* position: absolute; */
+    /* margin-left: 20px; */
+}
+
+.prev {
+    /* position: absolute; */
+    display: flex;
+
+
+}
+
+.next svg,
+.prev svg {
+    /* position: relative; */
     width: 20px;
     top: 50%;
-    
-    /* display: flex;
-    justify-content: center;
-    height: 25px */
+    fill: var(--text-color);
 }
 
-.prev img {
-    left: 0;
+.prev svg {
+    position: absolute;
+    left: 2%;
 }
 
-.next img {
-    right: 0;
-} 
+.next svg {
+    position: absolute;
+    right: 2%;
+}
 
 /* .back {
     display: flex;
@@ -64,6 +76,8 @@ main {
 
     gap: 5%;
     margin: 40px 0;
+    /* width: 80%;
+    margin: 0 auto; */
     /* margin-right: ; */
 }
 
