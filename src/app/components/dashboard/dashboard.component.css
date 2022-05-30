@@ -169,7 +169,7 @@ main {
         width: calc(100% - 30px);
     }
 }
-@media only screen and (min-width: 375px) {
+@media only screen and (min-width: 500px) {
     .desktop {
         display: flex;
     }
@@ -178,7 +178,7 @@ main {
         display: none;
     }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
     .desktop {
         display: none;
     }
